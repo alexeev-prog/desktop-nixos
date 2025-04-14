@@ -23,6 +23,9 @@
         openblas
         gcc
         htop
+        go
+        nasm
+        fasm
         zoxide
         fzf
         gnome.gvfs
