@@ -6,17 +6,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
-    home-manager = {
+home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    polymc.url = "github:PolyMC/PolyMC";
   };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
@@ -36,7 +29,13 @@
       };
       modules = [
         ./nixos/configuration.nix
-        inputs.nixvim.nixosModules.nixvim
+      ];
+    };
+
+    homeConfigurations.alexeev = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      modules = [
+        ./home-manager/home.nix
       ];
     };
   };

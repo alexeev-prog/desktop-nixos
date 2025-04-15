@@ -40,5 +40,12 @@
 		"-dpi-desync=split2"
 	];
 
+	services.zapret.whitelist = [
+    "youtube.com"
+    "googlevideo.com"
+    "ytimg.com"
+    "youtu.be"
+  ];
+
 	services.getty.autologinUser = "alexeev";
 }

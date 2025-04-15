@@ -15,12 +15,10 @@
     neovim
     xclip
     marble-shell-theme
-    papirus-icon-theme
     iptables
     ipset
-    orchis-theme
-    capitaine-cursors
     gnumake
+    obsidian
     ffmpeg
     cava
     zip
@@ -29,7 +27,6 @@
     xwayland
     wl-clipboard
     cliphist
-    papirus-nord
     jetbrains-mono
     iosevka
     openssh
