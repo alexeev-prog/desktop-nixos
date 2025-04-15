@@ -11,7 +11,7 @@
 		./bundle/bundle.nix
 	];
 
-	nix.settings.experimental-features = [ "nix-command" "flakes" ]; # Enabling flakes
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	# Использование systemd-boot EFI загрузчика
 	boot.loader.systemd-boot.enable = true;
