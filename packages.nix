@@ -19,6 +19,7 @@
         capitaine-cursors
         jetbrains-mono
         iosevka
+        openssh
         clang
         openblas
         gcc
@@ -64,6 +65,13 @@
         enable = true;
         defaultEditor = true;
     };
+
+    services.zapret.enable = true;
+    services.zapret.params = [
+    "--dpi-desync=fake,disorder2"
+    "--dpi-desync-ttl=1"
+    "--dpi-desync-autottl=2"
+    ];
 
     fonts.packages = with pkgs; [
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

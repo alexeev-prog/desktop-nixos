@@ -9,6 +9,8 @@
       ./packages.nix
     ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Использование systemd-boot EFI загрузчика
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -41,14 +43,14 @@
     desktopManager.gnome.enable = true;
   };
 
-  # Configure keymap in X11
+  # Конфигурация клавиатуры в X11
   services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable CUPS to print documents.
+  # Включает CUPS для печати документов
   # services.printing.enable = true;
 
-  # Enable sound.
+  # Включает звук
   # hardware.pulseaudio.enable = true;
   # OR
   services.pipewire = {
