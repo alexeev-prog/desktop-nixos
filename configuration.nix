@@ -3,115 +3,83 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Включите результаты сканирования железа
-      ./hardware-configuration.nix
-      ./packages.nix
-    ];
+	imports =
+	[ # Включите результаты сканирования железа
+		./hardware-configuration.nix
+		./packages.nix
+		./services.nix
+	];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Использование systemd-boot EFI загрузчика
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+	# Использование systemd-boot EFI загрузчика
+	boot.loader.systemd-boot.enable = true;
+	boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Ваше имя хоста
+	networking.hostName = "nixos"; # Ваше имя хоста
 
-  # Выберите один из методов подключения.
-  # networking.wireless.enable = true;  # Включает беспроводное подключение через wpa_supplicant.
-  networking.networkmanager.enable = true;  # Простейший способ
+	# Выберите один из методов подключения.
+	# networking.wireless.enable = true;    # Включает беспроводное подключение через wpa_supplicant.
+	networking.networkmanager.enable = true;    # Простейший способ
 
-  # Временная зона
-  time.timeZone = "Asia/Novosibirsk";
+	# Временная зона
+	time.timeZone = "Asia/Novosibirsk";
 
-  # Конфигурация прокси-сервера
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+	# Конфигурация прокси-сервера
+	# networking.proxy.default = "http://user:password@proxy:port/";
+	# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Свойства перевода и интернационализации
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # использовать xkb options в tty
-  # };
+	# Свойства перевода и интернационализации
+	# i18n.defaultLocale = "en_US.UTF-8";
+	# console = {
+	#     font = "Lat2-Terminus16";
+	#     keyMap = "us";
+	#     useXkbConfig = true; # использовать xkb options в tty
+	# };
 
-  # Включает X11
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
+	# Аккаунт пользователя
+	users.users.alexeev = {
+		isNormalUser = true;
+		initialPassword = "bEst7777";
+		shell = pkgs.fish;
+		extraGroups = [ "wheel" ];
+	};
 
-  # Конфигурация клавиатуры в X11
-  services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+	# Some programs need SUID wrappers, can be configured further or are
+	# started in user sessions.
+	# programs.mtr.enable = true;
+	# programs.gnupg.agent = {
+	#     enable = true;
+	#     enableSSHSupport = true;
+	# };
 
-  # Включает CUPS для печати документов
-  # services.printing.enable = true;
+	# Открытие портов в фаерволле
+	# networking.firewall.allowedTCPPorts = [ ... ];
+	# networking.firewall.allowedUDPPorts = [ ... ];
+	# Или выключите фаерволл в целом.
+	# networking.firewall.enable = false;
 
-  # Включает звук
-  # hardware.pulseaudio.enable = true;
-  # OR
-  services.pipewire = {
-     enable = true;
-     pulse.enable = true;
-  };
+	# Скопируйте файл конфигурации NixOS и свяжите его с полученной системой
+	# (/run/current-system/configuration.nix). Это полезно если
+	# вы случайно удалили configuration.nix
+	# system.copySystemConfiguration = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.alexeev = {
-     isNormalUser = true;
-     initialPassword = "bEst7777";
-     shell = pkgs.fish;
-     extraGroups = [ "wheel" ];
-   };
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
-
+	# Этот параметр определяет первую версию NixOS, установленную на данном компьютере,
+	# и используется для обеспечения совместимости с данными приложений (например, базами данных), созданными на более старых версиях NixOS.
+	#
+	# Большинству пользователей ни в коем случае не следует изменять это значение после первоначальной установки,
+	# даже если вы обновили свою систему до новой версии NixOS.
+	# Это значение не влияет на версию Nixpkgs, из которой извлекаются ваши пакеты и ОС,
+	# поэтому его изменение не приведет к обновлению вашей системы - смотрите раздел https://nixos.org/manual/nixos/stable/#sec-upgrading как
+	# это сделать на самом деле.
+	#
+	# Если это значение ниже текущей версии NixOS, это не означает, что ваша система обновлена.
+	# устарело, не поддерживается или уязвимо.
+	#
+	# НЕ меняйте это значение, если вы вручную не проверили все изменения, которые оно может внести в вашу конфигурацию,
+	# и не перенесли свои данные соответствующим образом.
+	#
+	# Дополнительные сведения см. в разделе "man configuration.nix` или https://nixos.org/manual/nixos/stable/o
+	system.stateVersion = "25.05"; # Вы прочитали комментарий?
 }
 

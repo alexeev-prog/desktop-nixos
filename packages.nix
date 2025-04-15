@@ -42,6 +42,8 @@
         elementary-xfce-icon-theme
         font-awesome_5
         telegram-desktop
+        ruff
+        black
         uv
         docker
         gnome-tweaks
@@ -65,13 +67,6 @@
         enable = true;
         defaultEditor = true;
     };
-
-    services.zapret.enable = true;
-    services.zapret.params = [
-    "--dpi-desync=fake,disorder2"
-    "--dpi-desync-ttl=1"
-    "--dpi-desync-autottl=2"
-    ];
 
     fonts.packages = with pkgs; [
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
