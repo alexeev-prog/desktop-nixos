@@ -8,6 +8,7 @@
 		./hardware-configuration.nix
 		./packages.nix
 		./services.nix
+		./bundle/bundle.nix
 	];
 
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -15,6 +16,7 @@
 	# Использование systemd-boot EFI загрузчика
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
+	boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ]; 
 
 	networking.hostName = "nixos"; # Ваше имя хоста
 

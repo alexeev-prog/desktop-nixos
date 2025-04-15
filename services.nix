@@ -16,12 +16,15 @@
 	# services.printing.enable = true;
 
 	# Включает звук
-	# hardware.pulseaudio.enable = true;
-	# Или
+	hardware.pulseaudio.enable = false;
 	services.pipewire = {
 		enable = true;
-		pulse.enable = true;
+		alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
 	};
+
+	security.rtkit.enable = true;
 
 	# Включает поддержку тачпада (включен по умолчанию в многих desktopManager).
 	services.libinput.enable = true;
@@ -32,8 +35,10 @@
 	# Включение zapret
 	services.zapret.enable = true;
 	services.zapret.params = [
-		"--dpi-desync=fake,disorder2"
-		"--dpi-desync-ttl=1"
-		"--dpi-desync-autottl=2"
+		"--dpi-desync=fake,disorder"
+		"--dpi-desync-fooling=md5sig"
+		"-dpi-desync=split2"
 	];
+
+	services.getty.autologinUser = "alexeev";
 }
