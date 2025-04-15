@@ -12,8 +12,6 @@
     curl
     micro
     gparted
-    obsidian
-    polymc
     neovim
     xclip
     marble-shell-theme
@@ -49,7 +47,6 @@
     libz
     zlib
     fish
-    libstdcxx5
     eza
     onefetch
     python313Full
@@ -102,6 +99,6 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    pkgs.nerd-fonts.jetbrains-mono
   ];
 }

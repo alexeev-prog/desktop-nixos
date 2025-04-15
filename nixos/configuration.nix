@@ -82,6 +82,6 @@
 	# и не перенесли свои данные соответствующим образом.
 	#
 	# Дополнительные сведения см. в разделе "man configuration.nix` или https://nixos.org/manual/nixos/stable/o
-	system.stateVersion = "25.05"; # Вы прочитали комментарий?
+	system.stateVersion = "24.11"; # Вы прочитали комментарий?
 }
 
