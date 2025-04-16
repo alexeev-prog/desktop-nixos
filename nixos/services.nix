@@ -41,15 +41,14 @@
 	services.zapret.params = [
 		"--dpi-desync=fake,disorder"
 		"--dpi-desync-fooling=md5sig"
-		"-dpi-desync=split2"
 	];
 
 	services.zapret.whitelist = [
-    "youtube.com"
-    "googlevideo.com"
-    "ytimg.com"
-    "youtu.be"
-  ];
+		"youtube.com"
+		"googlevideo.com"
+		"ytimg.com"
+		"youtu.be"
+	];
 
 	# Blueman
 	services.blueman.enable = true;
