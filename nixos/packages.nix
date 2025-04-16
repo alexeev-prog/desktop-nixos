@@ -80,6 +80,10 @@
     chromium
     blueman
     btop
+    adwaita-qt
+    adwaita-qt6
+    qadwaitadecorations
+    qadwaitadecorations-qt6
   ];
 
   programs.fish.enable = true;

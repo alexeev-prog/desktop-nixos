@@ -5,8 +5,12 @@
 	services.xserver = {
 		enable = true;
 		displayManager.gdm.enable = true;
+		displayManager.gdm.wayland = true;
 		desktopManager.gnome.enable = true;
 	};
+
+	services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
 	# Конфигурация клавиатуры в X11
 	services.xserver.xkb.layout = "us";
@@ -16,7 +20,7 @@
 	# services.printing.enable = true;
 
 	# Включает звук
-	hardware.pulseaudio.enable = false;
+	services.pulseaudio.enable = false;
 	services.pipewire = {
 		enable = true;
 		alsa.enable = true;
@@ -47,5 +51,10 @@
     "youtu.be"
   ];
 
-	services.getty.autologinUser = "alexeev";
+	# Blueman
+	services.blueman.enable = true;
+	hardware.bluetooth.enable = true;
+
+	# Enable GVfs
+  services.gvfs.enable = true;
 }
