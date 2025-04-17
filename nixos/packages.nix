@@ -15,8 +15,12 @@
     neovim
     xclip
     marble-shell-theme
+    jdk17
     iptables
     ipset
+    bluez
+    gnome-bluetooth
+    python313FreeThreading
     gnumake
     obsidian
     ffmpeg
@@ -48,7 +52,7 @@
     onefetch
     python313Full
     compose2nix
-    poetry
+    pipx
     flatpak
     zapret
     adw-gtk3
