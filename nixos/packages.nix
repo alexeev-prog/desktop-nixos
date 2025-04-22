@@ -16,6 +16,7 @@
     xclip
     marble-shell-theme
     jdk17
+    jre17_minimal
     iptables
     ipset
     bluez
@@ -23,6 +24,9 @@
     python313FreeThreading
     gnumake
     obsidian
+    openvpn3
+    trashy
+    gdm-settings
     ffmpeg
     cava
     zip
@@ -74,6 +78,7 @@
     corefonts
     rustup
     alacritty-theme
+    zed-editor
     alacritty
     dust
     nitch
