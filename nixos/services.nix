@@ -37,11 +37,11 @@
   services.openssh.enable = true;
 
   # Включение zapret
-  services.zapret.enable = true;
+  services.zapret.enable = false;
   services.zapret.params = [
     "--dpi-desync=fake,disorder2"
     "--dpi-desync-ttl=8"
-    "--dpi-desync-autottl=4"
+    "--dpi-desync-autottl=2"
         
     #"--dpi-desync=split2,disiorder2"
     #"--dpi-desync-ttl=1"
@@ -137,7 +137,7 @@
   hardware.bluetooth.enable = true;
 
   # Enable GVfs
-    services.gvfs.enable = true;
+  services.gvfs.enable = true;
 
-    services.flatpak.enable = true;
+  services.flatpak.enable = true;
 }

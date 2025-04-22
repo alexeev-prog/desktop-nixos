@@ -24,7 +24,7 @@
     python313FreeThreading
     gnumake
     obsidian
-    openvpn3
+    openvpn
     trashy
     gdm-settings
     ffmpeg
