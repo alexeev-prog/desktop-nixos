@@ -17,6 +17,10 @@
     marble-shell-theme
     jdk17
     jre17_minimal
+    mongodb
+    mongosh
+    mongodb-tools
+    mongodb-compass
     iptables
     ipset
     bluez
@@ -25,6 +29,9 @@
     gnumake
     obsidian
     openvpn
+    sqlitestudio
+    sqlitebrowser
+    redis
     trashy
     gdm-settings
     ffmpeg
@@ -59,6 +66,7 @@
     pipx
     flatpak
     zapret
+    colloid-icon-theme
     adw-gtk3
     elementary-xfce-icon-theme
     font-awesome_5
@@ -68,6 +76,7 @@
     uv
     qemu
     docker
+    nitch
     gnome-tweaks
     libgccjit
     vscodium
