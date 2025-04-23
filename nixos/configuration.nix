@@ -11,13 +11,6 @@
 		./bundle/bundle.nix
 	];
 
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
-	boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
-	boot.initrd.verbose = true;
-  boot.loader.timeout = 3;
-  boot.consoleLogLevel = 0;
-
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	networking.hostName = "nixos"; # Ваше имя хоста

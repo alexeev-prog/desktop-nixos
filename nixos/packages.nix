@@ -66,11 +66,14 @@
     ruff
     black
     uv
+    qemu
     docker
     gnome-tweaks
     libgccjit
     vscodium
     libgcc
+    gnome-terminal
+    sassc
     gnome-console
     jetbrains.pycharm-community-bin
     cargo
