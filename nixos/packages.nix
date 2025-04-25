@@ -11,16 +11,24 @@
     git
     curl
     micro
+    busybox
     gparted
+    uutils-coreutils
+    bat
     neovim
+    redis
+    mongodb-ce
     xclip
     marble-shell-theme
     jdk17
     jre17_minimal
-    mongodb
-    mongosh
-    mongodb-tools
     mongodb-compass
+    papers
+    evince
+    qemu_full
+    notify-desktop
+    libnotify
+    arp-scan
     iptables
     ipset
     bluez
@@ -29,9 +37,7 @@
     gnumake
     obsidian
     openvpn
-    sqlitestudio
     sqlitebrowser
-    redis
     trashy
     gdm-settings
     ffmpeg
@@ -74,7 +80,7 @@
     ruff
     black
     uv
-    qemu
+
     docker
     nitch
     gnome-tweaks

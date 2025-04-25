@@ -1,3 +1,21 @@
+commit 59266030cea0fdbeaf54266cdddf21660402ae8f
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Thu Apr 24 02:28:56 2025 +0700
+
+    add pkgs
+
+commit 213e45f1b6c5bbdf7b05277c509aabc6917ab85c
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Wed Apr 23 17:47:26 2025 +0700
+
+    add boot config and change config
+
+commit dbd9ed1b36ffffffa1eec01cc0afa957409c4ad2
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Wed Apr 23 01:28:46 2025 +0700
+
+    disable zapret (i use ovpn server)
+
 commit 4a0f1f2877060207e52c22f0ead5bfd537bc6d8e
 Author: Alexeev Bronislav <alexeev.dev@mail.ru>
 Date:   Tue Apr 22 23:11:47 2025 +0700
