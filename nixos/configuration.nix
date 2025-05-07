@@ -14,7 +14,7 @@
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	networking.hostName = "nixos"; # Ваше имя хоста
-
+	
 	# Выберите один из методов подключения.
 	# networking.wireless.enable = true;    # Включает беспроводное подключение через wpa_supplicant.
 	networking.networkmanager.enable = true;    # Простейший способ

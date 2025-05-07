@@ -140,4 +140,11 @@
   services.gvfs.enable = true;
 
   services.flatpak.enable = true;
+
+  virtualisation.docker.enable = true;
+
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 }

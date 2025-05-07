@@ -1,3 +1,9 @@
+commit 2f4f6a578c749f7327bac6ca375d1b26049636dc
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Fri Apr 25 23:49:26 2025 +0700
+
+    add more sysctl params
+
 commit 59266030cea0fdbeaf54266cdddf21660402ae8f
 Author: Alexeev Bronislav <alexeev.dev@mail.ru>
 Date:   Thu Apr 24 02:28:56 2025 +0700

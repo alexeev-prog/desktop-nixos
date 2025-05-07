@@ -8,20 +8,43 @@
     vim
     wget
     fastfetch
+    zlib
     git
     curl
     micro
     busybox
+    pkg-config
+    gcc-unwrapped
     gparted
     uutils-coreutils
     bat
     neovim
+    sublime
     redis
+    xorg.libXext
+    xorg.xorgserver
+    gitoxide
+    ruby
+    codechecker
     mongodb-ce
+    fmt
+    libclang
     xclip
     marble-shell-theme
+    xorg.libXcursor
+    xorg.libXrandr
+    xorg.libXext
+    freetype
+    qemu_full
+    xorg.libXtst
+    xorg.libXi
+    xorg.libXrender
+    xorg.libXxf86vm
+    xorg.libX11
     jdk17
     jre17_minimal
+    xorg.libX11
+    xorg.libXtst
     mongodb-compass
     papers
     evince
@@ -51,9 +74,7 @@
     jetbrains-mono
     iosevka
     openssh
-    clang
     openblas
-    gcc
     htop
     go
     onlyoffice-desktopeditors
@@ -68,6 +89,7 @@
     eza
     onefetch
     python313Full
+    libgccjit
     compose2nix
     pipx
     flatpak
@@ -80,7 +102,6 @@
     ruff
     black
     uv
-
     docker
     nitch
     gnome-tweaks
@@ -106,6 +127,7 @@
     rustfmt
     chromium
     blueman
+    libgcc
     btop
     adwaita-qt
     adwaita-qt6
@@ -120,6 +142,20 @@
     defaultEditor = true;
   };
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "steam"
+    "steam-original"
+    "steam-unwrapped"
+    "steam-run"
+  ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-emoji
@@ -128,5 +164,16 @@
     powerline-fonts
     powerline-symbols
     pkgs.nerd-fonts.jetbrains-mono
+  ];
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    zlib # numpy
+    # libgccjit
+    stdenv.cc.cc.lib
+    libgcc  # sqlalchemy
+    # that's where the shared libs go, you can find which one you need using 
+    # nix-locate --top-level libstdc++.so.6  (replace this with your lib)
+    # ^ this requires `nix-index` pkg
   ];
 }
