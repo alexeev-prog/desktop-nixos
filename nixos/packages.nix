@@ -19,7 +19,7 @@
     uutils-coreutils
     bat
     neovim
-    sublime
+    sublime4
     redis
     xorg.libXext
     xorg.xorgserver
@@ -28,7 +28,6 @@
     codechecker
     mongodb-ce
     fmt
-    libclang
     xclip
     marble-shell-theme
     xorg.libXcursor
@@ -125,6 +124,7 @@
     feh
     zram-generator
     rustfmt
+    direnv
     chromium
     blueman
     libgcc
@@ -133,6 +133,14 @@
     adwaita-qt6
     qadwaitadecorations
     qadwaitadecorations-qt6
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+      	jdinhlife.gruvbox
+        ms-vscode.cpptools
+        ms-vscode.cpptools-extension-pack
+        llvm-vs-code-extensions.vscode-clangd
+      ];
+    })
   ];
 
   programs.fish.enable = true;
@@ -162,6 +170,7 @@
     twemoji-color-font
     font-awesome
     powerline-fonts
+    departure-mono
     powerline-symbols
     pkgs.nerd-fonts.jetbrains-mono
   ];

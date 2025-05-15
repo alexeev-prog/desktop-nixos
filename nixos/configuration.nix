@@ -78,5 +78,9 @@
 	#
 	# Дополнительные сведения см. в разделе "man configuration.nix` или https://nixos.org/manual/nixos/stable/o
 	system.stateVersion = "24.11"; # Вы прочитали комментарий?
+
+	nixpkgs.config.permittedInsecurePackages = [
+      "openssl-1.1.1w"
+    ];
 }
 
