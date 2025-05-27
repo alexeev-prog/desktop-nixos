@@ -13,20 +13,53 @@
     curl
     micro
     busybox
+    nordzy-icon-theme
+    papirus-nord
+    nordzy-cursor-theme
+    krita
+    gimp-with-plugins
+    goxel
+    gruvbox-dark-gtk
+    gruvbox-gtk-theme
+    gruvbox-plus-icons
+    gruvbox-dark-icons-gtk
+    capitaine-cursors-themed
+    pioneer
+    wxhexeditor
+    rehex
+    okteta
+    tweak
+    retext
+    molsketch
+    inkscape
+    music-player
+    bitwig-studio
+    obs-studio
+    resources
+    fetchutils
+    afetch
+    yafetch
+    cpufetch
     pkg-config
     gcc-unwrapped
     gparted
     uutils-coreutils
     bat
+    libresprite
     neovim
     sublime4
     redis
+    blender
+    unrar
+    protonplus
+    protontricks
     xorg.libXext
     xorg.xorgserver
     gitoxide
     ruby
     codechecker
     mongodb-ce
+    dxvk
     fmt
     xclip
     marble-shell-theme
