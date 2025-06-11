@@ -4,6 +4,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+  	firefox
     home-manager
     vim
     wget
@@ -13,15 +14,26 @@
     curl
     micro
     busybox
+    prismlauncher
     nordzy-icon-theme
     papirus-nord
+    nodejs
+    lazygit
+    lazydocker
+    hexyl
+    hyx
+    cloc
     nordzy-cursor-theme
     krita
     gimp-with-plugins
+    mpv
     goxel
+    radare2
     gruvbox-dark-gtk
     gruvbox-gtk-theme
     gruvbox-plus-icons
+    ida-free
+    imhex
     gruvbox-dark-icons-gtk
     capitaine-cursors-themed
     pioneer

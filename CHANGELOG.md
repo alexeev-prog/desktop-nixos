@@ -1,3 +1,15 @@
+commit b72314d84faf031eebb7ed8e788850d63d343200
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Tue May 27 23:47:13 2025 +0700
+
+    add pkgs
+
+commit 982f3d8ecbfd596a751798ddde7af16f7b737910
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Thu May 15 20:21:07 2025 +0700
+
+    update
+
 commit ffb14f3ea61124dea934b99817592119b5c8c6e0
 Author: Alexeev Bronislav <alexeev.dev@mail.ru>
 Date:   Wed May 7 22:07:47 2025 +0700
