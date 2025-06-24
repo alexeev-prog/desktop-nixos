@@ -10,7 +10,6 @@
 		./services.nix
 		./bundle/bundle.nix
 	];
-
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	networking.hostName = "nixos"; # Ваше имя хоста

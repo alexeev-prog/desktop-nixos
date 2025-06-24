@@ -11,41 +11,41 @@
     fastfetch
     zlib
     git
+    rPackages.rmt
+    rmtrash
+    cpufetch
     curl
+    cmake
+    clang
+    clang-tools
+    clang-tidy-sarif
+    clang-analyzer
+    gcc
+    amberol
+    lld
+    pkg-config
+    gdb
+    valgrind
+    libxml2
     micro
     busybox
-    prismlauncher
-    nordzy-icon-theme
-    papirus-nord
     nodejs
     lazygit
     lazydocker
     hexyl
     hyx
     cloc
-    nordzy-cursor-theme
-    krita
+    doxygen
     gimp-with-plugins
     mpv
     goxel
     radare2
-    gruvbox-dark-gtk
-    gruvbox-gtk-theme
-    gruvbox-plus-icons
-    ida-free
     imhex
-    gruvbox-dark-icons-gtk
-    capitaine-cursors-themed
-    pioneer
     wxhexeditor
     rehex
     okteta
     tweak
     retext
-    molsketch
-    inkscape
-    music-player
-    bitwig-studio
     obs-studio
     resources
     fetchutils
@@ -70,7 +70,6 @@
     gitoxide
     ruby
     codechecker
-    mongodb-ce
     dxvk
     fmt
     xclip
@@ -85,11 +84,8 @@
     xorg.libXrender
     xorg.libXxf86vm
     xorg.libX11
-    jdk17
-    jre17_minimal
     xorg.libX11
     xorg.libXtst
-    mongodb-compass
     papers
     evince
     qemu_full
@@ -100,7 +96,8 @@
     ipset
     bluez
     gnome-bluetooth
-    python313FreeThreading
+    python314FreeThreading
+    python313Full
     gnumake
     obsidian
     openvpn
@@ -132,7 +129,7 @@
     fish
     eza
     onefetch
-    python313Full
+    python314Full
     libgccjit
     compose2nix
     pipx
@@ -140,7 +137,6 @@
     zapret
     colloid-icon-theme
     adw-gtk3
-    elementary-xfce-icon-theme
     font-awesome_5
     telegram-desktop
     ruff
@@ -178,14 +174,11 @@
     adwaita-qt6
     qadwaitadecorations
     qadwaitadecorations-qt6
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-      	jdinhlife.gruvbox
-        ms-vscode.cpptools
-        ms-vscode.cpptools-extension-pack
-        llvm-vs-code-extensions.vscode-clangd
-      ];
-    })
+    vscode
+    (pkgs.python3.withPackages (python-pkgs: [
+          python-pkgs.tqdm
+          python-pkgs.rich
+        ]))
   ];
 
   programs.fish.enable = true;

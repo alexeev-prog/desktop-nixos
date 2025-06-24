@@ -10,9 +10,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser = {
+      url = "github:LunaCOLON3/zen-browser-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, zen-browser, home-manager, ... }@inputs:
 
     let
       system = "x86_64-linux";
@@ -28,6 +33,7 @@
         inherit inputs system;
       };
       modules = [
+        zen-browser.nixosModules.zen-browser
         ./nixos/configuration.nix
       ];
     };
@@ -35,6 +41,7 @@
     homeConfigurations.alexeev = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       modules = [
+        zen-browser.homeManagerModules.zen-browser
         ./home-manager/home.nix
       ];
     };
