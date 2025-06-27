@@ -26,6 +26,8 @@
     pkg-config
     gdb
     valgrind
+    jdk17
+    jre17_minimal
     libxml2
     micro
     busybox
