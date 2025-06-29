@@ -1,3 +1,9 @@
+commit 62fd210659d2e879dc050fa824c0b8b74b1703e8
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Sat Jun 28 01:38:00 2025 +0700
+
+    i win nixos
+
 commit b3a17fd1fa8c0e8d41d63147eab16c7d598e604b
 Author: Alexeev Bronislav <alexeev.dev@mail.ru>
 Date:   Sat Jun 28 01:28:22 2025 +0700

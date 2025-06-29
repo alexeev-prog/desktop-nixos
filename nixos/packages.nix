@@ -12,11 +12,20 @@
     zlib
     git
     rPackages.rmt
+    jdk
+    fragments
     rmtrash
     cpufetch
     curl
+    libGL
+      glfw
+      xorg.libX11
+      xorg.libXcursor
+      xorg.libXrandr
+      xorg.libXi
     cmake
     clang
+    mesa
     clang-tools
     clang-tidy-sarif
     clang-analyzer
@@ -112,7 +121,6 @@
     unzip
     lazygit
     xwayland
-    wl-clipboard
     cliphist
     jetbrains-mono
     iosevka
