@@ -19,6 +19,9 @@
     curl
     libGL
       glfw
+      protonplus
+      proton-caller
+      wine
       xorg.libX11
       xorg.libXcursor
       xorg.libXrandr
