@@ -3,8 +3,12 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "python-2.7.18.8"
+  ];
+
   environment.systemPackages = with pkgs; [
-  	renpy
+  	
     firefox
     home-manager
     vim
@@ -13,13 +17,15 @@
     zlib
     git
     rPackages.rmt
+    # renpy
     jdk
     fragments
     rmtrash
-    # REMOVED: Incompatible Python 3.13 packages
-    python314Packages.cython
-    python314Packages.bpython
-    python314Packages.ipython
+    python311Full
+    python313Full
+    python313Packages.cython
+    python313Packages.bpython
+    python313Packages.ipython
     cpufetch
     curl
     jetbrains.rust-rover
@@ -62,7 +68,6 @@
     goxel
     radare2
     imhex
-    wxhexeditor
     rehex
     okteta
     tweak
@@ -117,7 +122,6 @@
     ipset
     bluez
     gnome-bluetooth
-    python314FreeThreading
     gnumake
     obsidian
     openvpn
@@ -148,7 +152,6 @@
     fish
     eza
     onefetch
-    python314Full
     libgccjit
     compose2nix
     pipx
@@ -194,12 +197,6 @@
     qadwaitadecorations
     qadwaitadecorations-qt6
     vscode
-    # SWITCHED to Python 3.14
-    (python314.withPackages (python-pkgs: [
-      python-pkgs.tqdm
-      python-pkgs.rich
-    ]))
-      # ADDED Renpy package
   ];
 
   programs.fish.enable = true;
