@@ -4,7 +4,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-  	firefox
+  	renpy
+    firefox
     home-manager
     vim
     wget
@@ -15,17 +16,23 @@
     jdk
     fragments
     rmtrash
+    # REMOVED: Incompatible Python 3.13 packages
+    python314Packages.cython
+    python314Packages.bpython
+    python314Packages.ipython
     cpufetch
     curl
+    jetbrains.rust-rover
+    jetbrains.clion
     libGL
-      glfw
-      protonplus
-      proton-caller
-      wine
-      xorg.libX11
-      xorg.libXcursor
-      xorg.libXrandr
-      xorg.libXi
+    glfw
+    protonplus
+    proton-caller
+    wine
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXrandr
+    xorg.libXi
     cmake
     clang
     mesa
@@ -111,7 +118,6 @@
     bluez
     gnome-bluetooth
     python314FreeThreading
-    python313Full
     gnumake
     obsidian
     openvpn
@@ -188,10 +194,12 @@
     qadwaitadecorations
     qadwaitadecorations-qt6
     vscode
-    (pkgs.python3.withPackages (python-pkgs: [
-          python-pkgs.tqdm
-          python-pkgs.rich
-        ]))
+    # SWITCHED to Python 3.14
+    (python314.withPackages (python-pkgs: [
+      python-pkgs.tqdm
+      python-pkgs.rich
+    ]))
+      # ADDED Renpy package
   ];
 
   programs.fish.enable = true;
@@ -210,9 +218,9 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
   };
 
   fonts.packages = with pkgs; [
@@ -223,17 +231,13 @@
     powerline-fonts
     departure-mono
     powerline-symbols
-    pkgs.nerd-fonts.jetbrains-mono
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-    zlib # numpy
-    # libgccjit
+    zlib
     stdenv.cc.cc.lib
-    libgcc  # sqlalchemy
-    # that's where the shared libs go, you can find which one you need using 
-    # nix-locate --top-level libstdc++.so.6  (replace this with your lib)
-    # ^ this requires `nix-index` pkg
+    libgcc
   ];
 }
