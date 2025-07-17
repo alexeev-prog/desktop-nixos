@@ -4,11 +4,20 @@
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.permittedInsecurePackages = [
-    "python-2.7.18.8"
+      "python-2.7.18.8"
+    ];
+  
+  nixpkgs.overlays = [
+    (self: super: {
+      renpy = super.renpy.override {
+        python3 = super.python312;
+      };
+    })
   ];
 
   environment.systemPackages = with pkgs; [
-  	
+ 	pinta
+  	krita
     firefox
     home-manager
     vim
@@ -16,13 +25,14 @@
     fastfetch
     zlib
     git
+    renpy
     rPackages.rmt
-    # renpy
     jdk
     fragments
     rmtrash
-    python311Full
+    python312Full
     python313Full
+    python314FreeThreading
     python313Packages.cython
     python313Packages.bpython
     python313Packages.ipython
