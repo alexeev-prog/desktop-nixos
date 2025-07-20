@@ -5,5 +5,6 @@
     ./trim.nix
     ./bluetooth.nix
     ./boot.nix
+    ./hyprland.nix
   ];
 }

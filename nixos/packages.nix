@@ -37,6 +37,17 @@
     python313Packages.bpython
     python313Packages.ipython
     cpufetch
+    hyprland
+    kitty
+    rofi
+    swaybg
+    mako
+    swaylock
+    grim
+    slurp
+    wl-clipboard
+    playerctl
+    swayidle
     curl
     jetbrains.rust-rover
     jetbrains.clion

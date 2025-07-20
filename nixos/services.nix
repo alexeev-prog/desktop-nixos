@@ -1,16 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  # Включает X11
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = true;
-        desktopManager.gnome.enable = true;
   };
 
   services.gnome.gnome-keyring.enable = true;
-    security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
 
   # Конфигурация клавиатуры в X11
   services.xserver.xkb.layout = "us";
