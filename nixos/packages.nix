@@ -18,7 +18,7 @@
   environment.systemPackages = with pkgs; [
  	pinta
     firefox
-    lxappearance
+    nwg-look
     wofi
     home-manager
     jq

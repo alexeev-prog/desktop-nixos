@@ -4,14 +4,14 @@
 {
   imports = [ ./waybar.nix ];
 
+  home.file.".config/hypr/hyprpaper.conf".text = ''
+    preload = ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png
+    wallpaper = ,~/Downloads/images/nix-wallpaper-nineish-dark-gray.png
+  '';
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-
-    home.file.".config/hypr/hyprpaper.conf".text = ''
-      preload = ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png
-      wallpaper = ,~/Downloads/images/nix-wallpaper-nineish-dark-gray.png
-    '';
 
     settings = {
       exec-once = [
@@ -41,7 +41,6 @@
         gaps_out = 10;
         border_size = 2;
         no_border_on_floating = false;
-        no_border_on_solo = true;
         # "col.active_border" = "rgba(61afefff)";
         # "col.inactive_border" = "rgba(595959aa)";
         "col.active_border" = "rgba(88a6ffff)";
