@@ -36,7 +36,6 @@
     blueman
     bluez
     bluez-tools
-    nitrogen
     bluez-alsa
     cliphist
     networkmanagerapplet
