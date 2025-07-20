@@ -38,29 +38,36 @@
       };
 
       decoration = {
-        rounding = 10;
-        blur.enabled = true;
-        blur.size = 3;
-        blur.passes = 1;
+        rounding = 12;
+        blur = {
+          enabled = true;
+          size = 5;
+          passes = 3;
+          new_optimizations = true;
+        };
         drop_shadow = true;
-        shadow_range = 4;
+        shadow_range = 15;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
+        shadow_ignore_window = true;
+        "col.shadow" = "rgba(00000099)";
       };
-
+    
       animations = {
         enabled = true;
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        bezier = [
+          "linear, 0, 0, 1, 1"
+          "md3_decel, 0.05, 0.7, 0.1, 1"
+          "overshot, 0.05, 0.9, 0.1, 1.05"
+        ];
         animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
+          "windows, 1, 3, md3_decel, popin"
+          "windowsOut, 1, 3, md3_decel, popin"
           "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+          "fade, 1, 3, default"
+          "workspaces, 1, 3, overshot, slide"
         ];
       };
-
+    
       dwindle = {
         pseudotile = true;
         preserve_split = true;
@@ -73,6 +80,8 @@
       "$mod" = "SUPER";
 
       bind = [
+        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
         "$mod, RETURN, exec, kitty"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
@@ -119,22 +128,60 @@
     borderColor = "#61afef";
   };
 
+  # home-manager/modules/hyprland.nix
   home.file.".config/rofi/config.rasi".text = ''
     configuration {
-      modi: "drun";
-      icon-theme: "Colloid";
+      modi: "drun,run,window";
+      icon-theme: "Colloid-dark";
       show-icons: true;
+      location: 0;
+      width: 30%;
+      lines: 8;
+      padding: 30px;
+      border-radius: 15px;
+      background: #1a1a1aE6;
+      background-border: #58a6ff;
+      border-width: 2px;
     }
     
     * {
-      bg-col:  #1a1a1a;
-      bg-col-light: #252525;
-      border-col: #61afef;
-      selected-col: #1a1a1a;
-      blue: #61afef;
-      fg-col: #abb2bf;
-      fg-col2: #e06c75;
-      grey: #5c6370;
+      text-color: #c9d1d9;
+      accent-color: #58a6ff;
+      background-color: transparent;
+    }
+    
+    window {
+      background-color: rgba(26, 26, 26, 0.9);
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    
+    entry {
+      placeholder: "Search...";
+      padding: 12px;
+      background-color: rgba(33, 33, 33, 0.8);
+      border-radius: 8px;
+      margin: 0 0 15px 0;
+    }
+    
+    listview {
+      padding: 8px 0;
+      background-color: transparent;
+      border-radius: 8px;
+    }
+    
+    element {
+      padding: 8px;
+      border-radius: 6px;
+    }
+    
+    element selected {
+      background-color: rgba(88, 166, 255, 0.2);
+    }
+    
+    element-icon {
+      size: 24px;
     }
   '';
 }

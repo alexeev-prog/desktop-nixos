@@ -25,6 +25,9 @@
     wget
     playerctl
     fastfetch
+    brightnessctl
+    pamixer
+    bibata-cursors
     appimage-run
     xfce.thunar
     zlib
@@ -33,7 +36,6 @@
     bluez-tools
     nitrogen
     bluez-alsa
-    beekeeper-studio
     cliphist
     networkmanagerapplet
     wireplumber
@@ -52,9 +54,9 @@
     python313Packages.cython
     python313Packages.bpython
     python313Packages.ipython
-    gnome.gnome-themes-extra
+    gnome-themes-extra
     colloid-icon-theme
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     qgnomeplatform
     adwaita-qt
     cpufetch

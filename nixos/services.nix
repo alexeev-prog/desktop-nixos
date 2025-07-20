@@ -12,7 +12,7 @@
 
 
   # Конфигурация клавиатуры в X11
-  services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Включает CUPS для печати документов

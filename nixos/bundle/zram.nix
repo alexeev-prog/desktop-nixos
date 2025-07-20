@@ -1,8 +1,9 @@
+# nixos/bundle/zram.nix
 {
   zramSwap = {
     enable = true;
-    algorithm = "lz4";
-    memoryPercent = 100;
-    priority = 999;
+    algorithm = "zstd";
+    memoryPercent = 150;
+    priority = 100;
   };
 }

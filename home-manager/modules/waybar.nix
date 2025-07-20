@@ -9,54 +9,59 @@
       layer = "top";
       position = "top";
 
-      modules-left = [ "hyprland/workspaces" ];
-      modules-center = [ "hyprland/window" ];
-      modules-right = [
-        "memory"
-        "cpu"
-        "temperature"
-        "pulseaudio"
-        "network"
-        "custom/bluetooth"
+      modules-left = [
+        "hyprland/workspaces"
+        "hyprland/window"
+      ];
+      
+      modules-center = [
         "clock"
+      ];
+      
+      modules-right = [
+        "pulseaudio"
+        "backlight"
+        "network"
+        "bluetooth"
+        "battery"
         "tray"
       ];
 
-      # "hyprland/workspaces" = {
-      #   format = "{icon}";
-      #   format-icons = ["1" "2" "3" "4" "5"];
-      #   persistent-workspaces = {
-      #     "*" = 5;
-      #   };
-      # };
-
-      memory = {
-        interval = 5;
-        format = " {percentage}%";
-        tooltip = true;
+      "hyprland/workspaces" = {
+        format = "{icon}";
+        format-icons = {
+          "1" = "一";
+          "2" = "二";
+          "3" = "三";
+          "4" = "四";
+          "5" = "五";
+          "active" = "";
+          "default" = "";
+        };
+        on-click = "activate";
       };
 
-      cpu = {
-        interval = 5;
-        format = " {usage}%";
-        tooltip = true;
+      "hyprland/window" = {
+        format = "{}";
+        max-length = 50;
       };
 
-      temperature = {
-        interval = 5;
-        thermal-zone = 0;
-        format = " {temperatureC}°C";
-        critical-threshold = 80;
+      backlight = {
+        device = "intel_backlight";
+        format = "{icon} {percent}%";
+        format-icons = ["" "" "" "" "" "" "" "" ""];
+        on-scroll-up = "brightnessctl set 5%+";
+        on-scroll-down = "brightnessctl set 5%-";
       };
 
-      network = {
-        interval = 5;
-        format-wifi = " {essid}";
-        format-ethernet = " {ipaddr}";
-        format-disconnected = "⚠ Disconnected";
-        tooltip-format = "{ifname}: {ipaddr}";
-        on-click = "nm-connection-editor"; 
-        on-click-right = "nmtui"; 
+      bluetooth = {
+        format = " {status}";
+        format-disabled = "";
+        format-connected = " {device_alias}";
+        tooltip-format = "{controller_alias}\t{controller_address}";
+        tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
+        tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+        on-click = "blueman-manager";
       };
 
       pulseaudio = {
@@ -72,18 +77,17 @@
           default = ["" ""];
         };
         scroll-step = 1;
-        on-click = "pamixer -t";  # Вкл/выкл звук
-        on-click-right = "pavucontrol";  # Открыть микшер
+        on-click = "pamixer -t";
+        on-click-right = "pavucontrol";
       };
 
-      "custom/bluetooth" = {
-        format = "{}";
-        interval = 30;
-        exec = "echo ''";
-        exec-if = "which bluetoothctl";
-        return-type = "json";
-        on-click = "blueman-manager";
-        signal = 8;
+      network = {
+        format-wifi = " {essid}";
+        format-ethernet = " {ifname}";
+        format-linked = " {ifname} (No IP)";
+        format-disconnected = "⚠ Disconnected";
+        tooltip-format = "{ifname}: {ipaddr}/{cidr}";
+        on-click = "nm-connection-editor";
       };
 
       clock = {
@@ -102,33 +106,63 @@
       * {
         font-family: "JetBrains Mono Nerd Font", "Iosevka Nerd Font";
         font-size: 12px;
+        color: #c9d1d9;
       }
       
       window#waybar {
-        background-color: #1a1a1a;
-        color: #abb2bf;
-        border-bottom: 1px solid #2c2c2c;
+        background-color: rgba(26, 26, 26, 0.9);
+        border-bottom: 1px solid rgba(40, 40, 40, 0.5);
+        border-radius: 0 0 10px 10px;
       }
       
       #workspaces button {
-        color: #5c6370;
-        padding: 0 5px;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0 6px;
       }
       
       #workspaces button.active {
-        color: #61afef;
+        color: #58a6ff;
+        background-color: rgba(88, 166, 255, 0.15);
+        border-radius: 4px;
       }
       
-      #memory, #cpu, #temperature, #pulseaudio, #network {
-        padding: 0 8px;
+      #window {
+        color: #8b949e;
+        padding: 0 12px;
+      }
+      
+      #clock, #pulseaudio, #backlight, #network, #bluetooth, #battery, #tray {
+        background-color: rgba(33, 33, 33, 0.8);
+        padding: 0 12px;
         margin: 0 4px;
-        border-radius: 4px;
-        background-color: #252525;
+        border-radius: 6px;
       }
       
       #clock {
-        padding: 0 10px;
-        margin-left: 6px;
+        color: #f0883e;
+        font-weight: bold;
+      }
+      
+      #pulseaudio {
+        color: #3fb950;
+      }
+      
+      #backlight {
+        color: #d29922;
+      }
+      
+      #network {
+        color: #58a6ff;
+      }
+      
+      #bluetooth {
+        color: #bc8cff;
+      }
+      
+      #battery {
+        color: #ff7b72;
       }
     '';
   };
