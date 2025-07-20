@@ -7,7 +7,7 @@
 #entry {
   margin: 0.25rem 0.75rem 0.25rem 0.75rem;
   padding: 0.25rem 0.75rem 0.25rem 0.75rem;
-  color: #9699b7;
+  color: #969696;
   border-radius: 8px;
 }
 
@@ -16,13 +16,13 @@
 }
 
 #window {
-    background-color: #292a37;
+    background-color: #1f1f1f;
     border-radius: 12px;
 }
 
 #outer-box {
-    background-color: #292a37;
-    border: 4px solid #44465c;
+    background-color: #1f1f1f;
+    border: 4px solid #3a3a3a;
     border-radius: 12px;
 }
 
@@ -30,17 +30,17 @@
     margin: 1rem;
     padding: 0.5rem;
     border-radius: 10px;
-    background-color: #303241;
+    background-color: #202020;
 }
 
 #entry {
     margin: 0.25rem 0.75rem 0.25rem 0.75rem;
     padding: 0.25rem 0.75rem 0.25rem 0.75rem;
-    color: #9699b7;
+    color: #969696;
     border-radius: 8px;
 }
 
 #entry:selected {
-    background-color: #303241;
-    color: #d9e0ee;
+    background-color: #404040;
+    color: #d9d9d9;
 }

@@ -16,6 +16,8 @@
     settings = {
       exec-once = [
 		  # "swaybg -i ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png -m fill"
+		  "swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'"
+		  "wl-paste --watch cliphist store"
 		  "hyprpaper"
 		  "waybar"
 		  "mako"

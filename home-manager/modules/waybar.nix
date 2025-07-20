@@ -31,10 +31,10 @@
       ];
 
       "custom/keyboard" = {
-        exec = "hyprctl devices | awk '/Keyboard/ {k=1} k && /active keymap:/ {print $3; exit}'";
+        exec = "hyprctl devices -j | jq -r '.keyboards[] | select(.name == \"juchen-usb-keyboard\") | .active_keymap' | cut -c 1-2 | tr 'A-Z' 'a-z'";
         interval = 1;
         format = "⌨ {}";
-        on-click = "hyprctl switchxkblayout";
+        on-click = "hyprctl switchxkblayout at-translated-set-2-keyboard next";
         tooltip = false;
       };
 
@@ -82,7 +82,7 @@
         format-plugged = " {capacity}%";
         format-full = "  Full";
         format-alt = "{time} {icon}";
-        format-icons = ["" "" "" "" ""];
+        format-icons = [" " " " " " " " " "];
       };
 
       backlight = {
@@ -107,13 +107,13 @@
         format = "{icon} {volume}%";
         format-muted = " Muted";
         format-icons = {
-          headphone = "";
-          hands-free = "";
-          headset = "";
-          phone = "";
-          portable = "";
-          car = "";
-          default = ["" ""];
+          headphone = " ";
+          hands-free = " ";
+          headset = " ";
+          phone = " ";
+          portable = " ";
+          car = " ";
+          default = [" " " "];
         };
         scroll-step = 1;
         on-click = "pamixer -t";
@@ -122,7 +122,7 @@
 
       network = {
         format-wifi = "  {essid}";
-        format-ethernet = " { ifname}";
+        format-ethernet = "  {ifname}";
         format-linked = "  {ifname} (No IP)";
         format-disconnected = "⚠ Disconnected";
         tooltip-format = "{ifname}: {ipaddr}/{cidr}";

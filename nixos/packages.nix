@@ -20,6 +20,7 @@
     firefox
     nwg-look
     wofi
+    xkblayout-state
     home-manager
     jq
     vim
