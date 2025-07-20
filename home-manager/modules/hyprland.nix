@@ -104,7 +104,7 @@
         "$mod, RETURN, exec, kitty"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
-        "$mod, D, exec, wofi --style ~/nixos/home-manager/modules/wofi.css --show drun"
+        "$mod, D, exec, wofi -I -m -M=fuzzy --style ~/nixos/home-manager/modules/wofi.css --show drun -p \" Search\""
         "$mod, P, pseudo"
         "$mod, S, togglesplit"
         
