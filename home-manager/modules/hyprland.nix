@@ -10,11 +10,12 @@
 
     settings = {
       exec-once = [
-        "swaybg -i ~/Pictures/images/better.jpg"
-        "waybar"
-        "mako"
-        "nm-applet"
-        "blueman-applet"
+		  "swaybg -i ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png"
+		  "waybar"
+		  "mako"
+		  "nm-applet"
+		  "blueman-applet"
+		  "swayidle -w timeout 300 'swaylock -f -c 000000'"
       ];
 
       env = [
@@ -32,8 +33,11 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgba(61afefff)";
-        "col.inactive_border" = "rgba(595959aa)";
+        # "col.active_border" = "rgba(61afefff)";
+        # "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(88a6ffff)";
+        "col.inactive_border" = "rgba(1a1a1aff)";
+        "col.shadow" = "rgba(1a1a1a99)";
         layout = "dwindle";
       };
 
@@ -45,11 +49,11 @@
           passes = 3;
           new_optimizations = true;
         };
-        drop_shadow = true;
-        shadow_range = 15;
-        shadow_render_power = 3;
-        shadow_ignore_window = true;
-        "col.shadow" = "rgba(00000099)";
+        # drop_shadow = true;
+        # shadow_range = 15;
+        # shadow_render_power = 3;
+        # shadow_ignore_window = true;
+        # "col.shadow" = "rgba(00000099)";
       };
     
       animations = {
@@ -73,7 +77,7 @@
         preserve_split = true;
       };
 
-      master.new_is_master = true;
+      # master.new_is_master = true;
 
       gestures.workspace_swipe = true;
 
@@ -128,7 +132,6 @@
     borderColor = "#61afef";
   };
 
-  # home-manager/modules/hyprland.nix
   home.file.".config/rofi/config.rasi".text = ''
     configuration {
       modi: "drun,run,window";
@@ -139,9 +142,9 @@
       lines: 8;
       padding: 30px;
       border-radius: 15px;
-      background: #1a1a1aE6;
+      background: #0d1117E6;  # GitHub Dark
       background-border: #58a6ff;
-      border-width: 2px;
+      border-width: 1px;
     }
     
     * {
@@ -151,7 +154,7 @@
     }
     
     window {
-      background-color: rgba(26, 26, 26, 0.9);
+      background-color: rgba(13, 17, 23, 0.95);
       border: 1px solid #30363d;
       border-radius: 12px;
       padding: 20px;
@@ -160,7 +163,7 @@
     entry {
       placeholder: "Search...";
       padding: 12px;
-      background-color: rgba(33, 33, 33, 0.8);
+      background-color: rgba(22, 27, 34, 0.8);
       border-radius: 8px;
       margin: 0 0 15px 0;
     }

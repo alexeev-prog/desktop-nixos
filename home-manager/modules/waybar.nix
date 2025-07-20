@@ -19,13 +19,45 @@
       ];
       
       modules-right = [
+        "custom/keyboard"
+        "cpu"
+        "memory"
+        "temperature"
         "pulseaudio"
         "backlight"
         "network"
         "bluetooth"
         "battery"
+        "clock"
         "tray"
       ];
+
+      "cpu" = {
+        interval = 5;
+        format = " {usage}%";
+        tooltip = false;
+      };
+      
+      "memory" = {
+        interval = 5;
+        format = " {}%";
+        format-alt = " {used:0.1f}G/{total:0.1f}G";
+      };
+      
+      "temperature" = {
+        interval = 5;
+        thermal-zone = 0;
+        format = " {temperatureC}°C";
+        critical-threshold = 80;
+      };
+
+      "custom/keyboard" = {
+        exec = "hyprctl devices | grep -A 2 'keyboard' | grep 'active keymap' | awk '{print $3}' | head -n1";
+        interval = 2;
+        format = "⌨ {}";
+        on-click = "hyprctl switchxkblayout next";
+        tooltip = false;
+      };
 
       "hyprland/workspaces" = {
         format = "{icon}";
@@ -104,13 +136,17 @@
 
     style = ''
       * {
-        font-family: "JetBrains Mono Nerd Font", "Iosevka Nerd Font";
-        font-size: 12px;
-        color: #c9d1d9;
+        background-color: #1a1a1a;
+        color: #abb2bf;
+      }
+      
+      #tray menu {
+        background-color: #1a1a1a;
+        border: 1px solid #333;
       }
       
       window#waybar {
-        background-color: rgba(26, 26, 26, 0.9);
+        background-color: #1a1a1a;
         border-bottom: 1px solid rgba(40, 40, 40, 0.5);
         border-radius: 0 0 10px 10px;
       }
@@ -124,7 +160,7 @@
       
       #workspaces button.active {
         color: #58a6ff;
-        background-color: rgba(88, 166, 255, 0.15);
+        background-color: rgba(33, 33, 33, 0.15);
         border-radius: 4px;
       }
       
@@ -133,8 +169,8 @@
         padding: 0 12px;
       }
       
-      #clock, #pulseaudio, #backlight, #network, #bluetooth, #battery, #tray {
-        background-color: rgba(33, 33, 33, 0.8);
+      #clock, #pulseaudio, #backlight, #network, #bluetooth, #battery, #tray, #custom-keyboard {
+        background-color: rgba(22, 22, 22, 0.8);
         padding: 0 12px;
         margin: 0 4px;
         border-radius: 6px;
@@ -150,19 +186,23 @@
       }
       
       #backlight {
-        color: #d29922;
+        color: #d29922; 
       }
       
       #network {
-        color: #58a6ff;
+        color: #58a6ff; 
       }
       
       #bluetooth {
-        color: #bc8cff;
+        color: #bc8cff;  
       }
       
       #battery {
-        color: #ff7b72;
+        color: #ff7b72;  
+      }
+      
+      #custom-keyboard {
+        color: #8b949e; 
       }
     '';
   };

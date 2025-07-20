@@ -25,6 +25,7 @@
     wget
     playerctl
     fastfetch
+    xdg-utils
     brightnessctl
     pamixer
     bibata-cursors
