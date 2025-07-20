@@ -19,6 +19,7 @@
  	pinta
   	krita
     firefox
+    wofi
     home-manager
     vim
     gtk-engine-murrine
@@ -63,7 +64,6 @@
     cpufetch
     hyprland
     kitty
-    rofi
     swaybg
     mako
     swaylock
