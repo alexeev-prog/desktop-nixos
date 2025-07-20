@@ -28,7 +28,19 @@
         "bluetooth"
         "battery"
         "tray"
+        "custom/notification"
       ];
+
+      "custom/notification" = {
+        # exec = "echo ' '";
+        exec = "makoctl list | grep -c '^Notification'";
+        # format = " {}";
+        tooltip = false;
+        format = " {}";
+        interval = 1;
+        on-click = "makoctl dismiss";
+        on-click-right = "makoctl restore";
+      };
 
       "custom/keyboard" = {
         exec = "hyprctl devices -j | jq -r '.keyboards[] | select(.name == \"juchen-usb-keyboard\") | .active_keymap' | cut -c 1-2 | tr 'A-Z' 'a-z'";
@@ -58,14 +70,14 @@
       };
 
       cpu = {
-        format = "  {usage}%";
+        format = " {usage}%";
         interval = 1;
         tooltip = false;
       };
 
       # Memory Widget
       memory = {
-        format = "  {percentage}%";
+        format = " {percentage}%";
         interval = 2;
         tooltip = false;
       };
@@ -144,13 +156,13 @@
     style = ''
       * {
         font-family: "JetBrains Mono Nerd Font", "Iosevka Nerd Font";
-        font-size: 12px;
+        font-size: 13px;
         color: #c9d1d9;
       }
       
       window#waybar {
-        background-color: #1a1a1a;
-        border-bottom: 1px solid rgba(40, 40, 40, 0.5);
+        background: transparent;
+        border: none;
       }
       
       #workspaces button {
@@ -171,9 +183,11 @@
         padding: 0 12px;
       }
       
-      #clock, #pulseaudio, #backlight, #network, #bluetooth, #battery, #tray, #custom-keyboard, #cpu, #memory {
-        background-color: rgba(19, 19, 19, 0.8);
-        padding: 0 12px;
+      #clock, #workspaces, #pulseaudio, #notification, #backlight, #network, #bluetooth, 
+      #battery, #tray, #custom-keyboard, #cpu, #memory {
+        background-color: #2f2f2f;
+        border: 1px solid #1a1a1a;
+        padding: 0 8px;
         margin: 0 4px;
         border-radius: 6px;
       }

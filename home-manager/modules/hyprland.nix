@@ -26,6 +26,10 @@
 		  "swayidle -w timeout 300 'swaylock -f -c 000000'"
       ];
 
+      windowrulev2 = [
+            "noborder, onworkspace:w[t1]"
+          ];
+
       env = [
         "XCURSOR_SIZE,24"
         "QT_QPA_PLATFORMTHEME,qt5ct"

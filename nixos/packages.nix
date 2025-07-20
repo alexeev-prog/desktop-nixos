@@ -258,6 +258,8 @@
     departure-mono
     powerline-symbols
     nerd-fonts.jetbrains-mono
+    iosevka
+    nerd-fonts.iosevka
   ];
 
   programs.nix-ld.enable = true;
