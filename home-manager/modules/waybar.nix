@@ -20,36 +20,13 @@
       
       modules-right = [
         "custom/keyboard"
-        "cpu"
-        "memory"
-        "temperature"
         "pulseaudio"
         "backlight"
         "network"
         "bluetooth"
         "battery"
-        "clock"
         "tray"
       ];
-
-      "cpu" = {
-        interval = 5;
-        format = " {usage}%";
-        tooltip = false;
-      };
-      
-      "memory" = {
-        interval = 5;
-        format = " {}%";
-        format-alt = " {used:0.1f}G/{total:0.1f}G";
-      };
-      
-      "temperature" = {
-        interval = 5;
-        thermal-zone = 0;
-        format = " {temperatureC}°C";
-        critical-threshold = 80;
-      };
 
       "custom/keyboard" = {
         exec = "hyprctl devices | grep -A 2 'keyboard' | grep 'active keymap' | awk '{print $3}' | head -n1";
@@ -136,19 +113,14 @@
 
     style = ''
       * {
-        background-color: #1a1a1a;
-        color: #abb2bf;
-      }
-      
-      #tray menu {
-        background-color: #1a1a1a;
-        border: 1px solid #333;
+        font-family: "JetBrains Mono Nerd Font", "Iosevka Nerd Font";
+        font-size: 12px;
+        color: #c9d1d9;
       }
       
       window#waybar {
         background-color: #1a1a1a;
         border-bottom: 1px solid rgba(40, 40, 40, 0.5);
-        border-radius: 0 0 10px 10px;
       }
       
       #workspaces button {

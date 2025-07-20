@@ -6,6 +6,7 @@
     ./dunst.nix
     ./hyprland.nix
     ./waybar.nix
+    ./wofi.nix
     # ./direnv.nix
   ];
 }

@@ -37,7 +37,6 @@
         # "col.inactive_border" = "rgba(595959aa)";
         "col.active_border" = "rgba(88a6ffff)";
         "col.inactive_border" = "rgba(1a1a1aff)";
-        "col.shadow" = "rgba(1a1a1a99)";
         layout = "dwindle";
       };
 
@@ -89,7 +88,7 @@
         "$mod, RETURN, exec, kitty"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
-        "$mod, D, exec, rofi -show drun"
+        "$mod, D, exec, wofi -show drun"
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
         "$mod, left, movefocus, l"
@@ -142,7 +141,7 @@
       lines: 8;
       padding: 30px;
       border-radius: 15px;
-      background: #0d1117E6;  # GitHub Dark
+      background: #1e1e1e;
       background-border: #58a6ff;
       border-width: 1px;
     }
@@ -155,7 +154,6 @@
     
     window {
       background-color: rgba(13, 17, 23, 0.95);
-      border: 1px solid #30363d;
       border-radius: 12px;
       padding: 20px;
     }
