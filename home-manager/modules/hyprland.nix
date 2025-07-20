@@ -5,8 +5,8 @@
   imports = [ ./waybar.nix ];
 
   home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png
-    wallpaper = ,~/Downloads/images/nix-wallpaper-nineish-dark-gray.png
+    preload = ~/Pictures/images/better.jpg
+    wallpaper = ~/Pictures/images/better.jpg
   '';
 
   wayland.windowManager.hyprland = {
@@ -58,8 +58,8 @@
         rounding = 6;
         blur = {
           enabled = true;
-          size = 7;
-          passes = 4;
+          size = 4;
+          passes = 2;
           new_optimizations = true;
           ignore_opacity = true;
           special = true;

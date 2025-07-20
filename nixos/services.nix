@@ -73,4 +73,16 @@
     enable = true;
     setSocketVariable = true;
   };
+
+  services.tumbler.enable = true; # сервис миниатюр
+    environment.systemPackages = with pkgs; [
+      tumbler # для миниатюр изображений
+      poppler_utils # миниатюры PDF
+    ];
+  
+    # Поддержка форматов
+    services.tumbler.extraPlugins = with pkgs; [
+      tumbler # основной плагин
+      ffmpegthumbnailer
+    ];
 }

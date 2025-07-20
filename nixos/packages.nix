@@ -32,7 +32,6 @@
     xdg-utils
     brightnessctl
     pamixer
-    bibata-cursors
     appimage-run
     xfce.thunar
     zlib
@@ -41,6 +40,16 @@
     bluez
     bluez-tools
     bluez-alsa
+    nemo
+    ffmpegthumbnailer
+    gnome-music
+    gnome-photos
+    vlc
+    totem # video player
+    polkit_gnome
+    gnome-keyring
+    udisks
+    gvfs
     cliphist
     networkmanagerapplet
     wireplumber
@@ -217,6 +226,7 @@
     zram-generator
     rustfmt
     direnv
+    neotop
     chromium
     blueman
     libgcc
@@ -229,6 +239,24 @@
   ];
 
   programs.fish.enable = true;
+
+  security.polkit.enable = true;
+
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
+
+  users.users.alexeev.extraGroups = [ "storage" ];
 
   programs.neovim = {
     enable = true;

@@ -8,8 +8,15 @@
     colloid-icon-theme
   ];
 
+  xdg.mime.defaultApplications = {
+    "inode/directory" = "nemo.desktop";
+    "image/*" = "eog.desktop";
+    "video/*" = "mpv.desktop";
+  };
+
   environment.variables = {
     GTK_THEME = "adw-gtk3-dark";
+    GTK_USE_PORTAL = "1"
     # XCURSOR_THEME = "Bibata-Modern-Classic";
     XCURSOR_SIZE = "24";
   };
