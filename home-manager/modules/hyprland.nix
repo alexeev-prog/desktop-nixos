@@ -93,11 +93,18 @@
         "$mod, F, fullscreen"
         "$mod, D, exec, wofi -show drun"
         "$mod, P, pseudo"
-        "$mod, J, togglesplit"
+        "$mod, S, togglesplit"
+        
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+        
+        "$mod, j, movefocus, l"
+        "$mod, k, movefocus, r"
+        "$mod, u, movefocus, u"
+        "$mod, v, movefocus, d"
+        
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"

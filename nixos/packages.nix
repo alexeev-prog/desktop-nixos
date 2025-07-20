@@ -22,6 +22,7 @@
     home-manager
     jq
     vim
+    qemu_full
     gtk-engine-murrine
     wget
     playerctl
@@ -34,6 +35,7 @@
     xfce.thunar
     zlib
     blueman
+    brightnessctl
     bluez
     bluez-tools
     bluez-alsa
@@ -70,7 +72,7 @@
     playerctl
     swayidle
     curl
-    jetbrains.rust-rover
+    # jetbrains.rust-rover
     libGL
     glfw
     protonplus
@@ -104,7 +106,6 @@
     hyx
     cloc
     doxygen
-    gimp-with-plugins
     mpv
     goxel
     radare2
@@ -125,7 +126,6 @@
     uutils-coreutils
     bat
     neovim
-    blender
     unrar
     protonplus
     protontricks
@@ -150,7 +150,6 @@
     xorg.libXtst
     papers
     evince
-    qemu_full
     notify-desktop
     libnotify
     arp-scan
@@ -204,7 +203,7 @@
     libgccjit
     libgcc
     sassc
-    jetbrains.pycharm-community-bin
+    # jetbrains.pycharm-community-bin
     cargo
     rustc
     corefonts
