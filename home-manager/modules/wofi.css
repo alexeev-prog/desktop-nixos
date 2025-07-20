@@ -4,6 +4,17 @@
     font-size: 16px;
 }
 
+#entry {
+  margin: 0.25rem 0.75rem 0.25rem 0.75rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+  color: #9699b7;
+  border-radius: 8px;
+}
+
+#entry image {
+  margin-right: 10px;
+}
+
 #window {
     background-color: #292a37;
     border-radius: 12px;

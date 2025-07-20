@@ -11,6 +11,10 @@
 
 # nixos/bundle/env.nix
 {
+
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+  };
   environment.variables = {
     EDITOR = "nvim";
     RANGER_LOAD_DEFAULT_RC = "FALSE";

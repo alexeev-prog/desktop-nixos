@@ -31,16 +31,10 @@
       ];
 
       "custom/keyboard" = {
-        exec = ''
-          hyprctl devices | grep -A 2 'keyboard' | grep 'active keymap' | awk '{print $3}' | head -n1
-        '';
-        interval = 2;
+        exec = "hyprctl devices | awk '/Keyboard/ {k=1} k && /active keymap:/ {print $3; exit}'";
+        interval = 1;
         format = "⌨ {}";
-        on-click = ''
-          # Get first keyboard device ID
-          device=$(hyprctl devices -j | jq -r '.keyboards[0].name')
-          hyprctl switchxkblayout $device next
-        '';
+        on-click = "hyprctl switchxkblayout";
         tooltip = false;
       };
 

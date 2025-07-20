@@ -7,6 +7,7 @@
     ./hyprland.nix
     ./waybar.nix
     ./wofi.nix
+    ./swaylock.nix
     # ./direnv.nix
   ];
 }

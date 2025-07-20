@@ -18,11 +18,12 @@
   environment.systemPackages = with pkgs; [
  	pinta
     firefox
+    lxappearance
     wofi
     home-manager
     jq
     vim
-    qemu_full
+    # qemu_full
     gtk-engine-murrine
     wget
     playerctl

@@ -8,9 +8,15 @@
     enable = true;
     systemd.enable = true;
 
+    home.file.".config/hypr/hyprpaper.conf".text = ''
+      preload = ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png
+      wallpaper = ,~/Downloads/images/nix-wallpaper-nineish-dark-gray.png
+    '';
+
     settings = {
       exec-once = [
-		  "swaybg -i ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png -m fill"
+		  # "swaybg -i ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png -m fill"
+		  "hyprpaper"
 		  "waybar"
 		  "mako"
 		  "nm-applet"
@@ -24,7 +30,8 @@
       ];
 
       input = {
-        kb_layout = "us";
+        kb_layout = "us,ru";
+        kb_options = "grp:alt_shift_toggle";
         follow_mouse = 1;
         touchpad.natural_scroll = true;
       };
@@ -33,6 +40,8 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
+        no_border_on_floating = false;
+        no_border_on_solo = true;
         # "col.active_border" = "rgba(61afefff)";
         # "col.inactive_border" = "rgba(595959aa)";
         "col.active_border" = "rgba(88a6ffff)";
@@ -41,13 +50,12 @@
       };
 
       decoration = {
-        rounding = 12;
+        rounding = 6;
         blur = {
           enabled = true;
-          size = 5;
-          passes = 3;
+          size = 7;
+          passes = 4;
           new_optimizations = true;
-          # Add blur rules for Kitty
           ignore_opacity = true;
           special = true;
         };
@@ -91,7 +99,7 @@
         "$mod, RETURN, exec, kitty"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
-        "$mod, D, exec, wofi -show drun"
+        "$mod, D, exec, wofi --style ~/nixos/home-manager/modules/wofi.css --show drun"
         "$mod, P, pseudo"
         "$mod, S, togglesplit"
         
