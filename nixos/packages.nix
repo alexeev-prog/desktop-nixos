@@ -53,8 +53,6 @@
     python313Full
     python314FreeThreading
     python313Packages.cython
-    python313Packages.bpython
-    python313Packages.ipython
     gnome-themes-extra
     colloid-icon-theme
     adwaita-icon-theme
@@ -73,7 +71,6 @@
     swayidle
     curl
     jetbrains.rust-rover
-    jetbrains.clion
     libGL
     glfw
     protonplus
@@ -127,10 +124,7 @@
     gparted
     uutils-coreutils
     bat
-    libresprite
     neovim
-    sublime4
-    redis
     blender
     unrar
     protonplus
@@ -143,12 +137,10 @@
     dxvk
     fmt
     xclip
-    marble-shell-theme
     xorg.libXcursor
     xorg.libXrandr
     xorg.libXext
     freetype
-    qemu_full
     xorg.libXtst
     xorg.libXi
     xorg.libXrender
@@ -171,7 +163,6 @@
     openvpn
     sqlitebrowser
     trashy
-    gdm-settings
     ffmpeg
     cava
     zip
@@ -211,19 +202,13 @@
     docker
     nitch
     libgccjit
-    vscodium
     libgcc
-    gnome-terminal
     sassc
-    gnome-console
     jetbrains.pycharm-community-bin
     cargo
     rustc
     corefonts
     rustup
-    alacritty-theme
-    zed-editor
-    alacritty
     dust
     nitch
     ranger

@@ -11,7 +11,28 @@
 		./localization.nix
 		./bundle/bundle.nix
 	];
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	# nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+	# nix.settings = {
+	#   experimental-features = [ "nix-command" "flakes" ];
+	#   substituters = [ "https://cache.nixos.org/" ];
+	#   trusted-substituters = [ "https://cache.nixos.org/" ];
+	#   trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+	#   build-fallback = false;
+	# };
+
+	nix = {
+	  # Enable binary substitutes and disable local builds
+	  settings = {
+	    experimental-features = [ "nix-command" "flakes" ];
+	    substituters = [ "https://cache.nixos.org/" ];
+	    trusted-substituters = [ "https://cache.nixos.org/" ];
+	    trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+	    builders = null;              # Disable remote builders
+	    build-fallback = false;     # Fail instead of building locally
+	  };
+	  extraOptions = "substitute = true";  # Explicitly enable substitution
+	};
 
 	networking.hostName = "nixos"; # Ваше имя хоста
 	

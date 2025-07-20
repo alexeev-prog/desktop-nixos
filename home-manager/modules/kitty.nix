@@ -14,6 +14,8 @@
       foreground = "#abb2bf";
       cursor = "#61afef";
       selection_background = "#3e4451";
+      window_padding_width = "10 7";
+      confirm_os_window_close = 0;
       color0 = "#1a1a1a";
       color1 = "#e06c75";
       color2 = "#98c379";
@@ -33,6 +35,13 @@
     };
     extraConfig = ''
       include current-theme.conf
+      repaint_delay 10
+      sync_to_monitor yes
+      text_composition_strategy legacy
+      
+      mouse_hide_wait 3.0
+      url_style double
+      show_hyperlink_targets yes
     '';
   };
 }
