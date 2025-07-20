@@ -12,11 +12,35 @@
     stateVersion = "24.11";
   };
 
-  # Включаем GTK и Qt темирование
-  gtk.enable = true;
-  gtk.theme.name = "Adw-gtk3-dark";
-  gtk.iconTheme.name = "Colloid";
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
+    };
+    iconTheme = {
+      name = "Colloid-dark";
+      package = pkgs.colloid-icon-theme.override { color = "dark"; };
+    };
+    cursorTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+      size = 24;
+    };
+  };
 
-  qt.enable = true;
-  qt.platformTheme = "gtk";
-}
+  # Qt тема
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style.name = "adwaita-dark";
+  };
+
+  # Настройки окружения
+  home.sessionVariables = {
+    GTK_THEME = "Adwaita-dark";
+    QT_STYLE_OVERRIDE = "adwaita-dark";
+    XCURSOR_THEME = "Adwaita";
+    XCURSOR_SIZE = "24";
+  };
+}	

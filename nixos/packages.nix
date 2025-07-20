@@ -21,9 +21,25 @@
     firefox
     home-manager
     vim
+    gtk-engine-murrine
     wget
+    playerctl
     fastfetch
+    appimage-run
+    xfce.thunar
     zlib
+    blueman
+    bluez
+    bluez-tools
+    nitrogen
+    bluez-alsa
+    beekeeper-studio
+    cliphist
+    networkmanagerapplet
+    wireplumber
+    pipewire
+    pulseaudio
+    pavucontrol
     git
     renpy
     rPackages.rmt
@@ -36,6 +52,11 @@
     python313Packages.cython
     python313Packages.bpython
     python313Packages.ipython
+    gnome.gnome-themes-extra
+    colloid-icon-theme
+    gnome.adwaita-icon-theme
+    qgnomeplatform
+    adwaita-qt
     cpufetch
     hyprland
     kitty

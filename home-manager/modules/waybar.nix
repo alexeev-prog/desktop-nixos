@@ -15,19 +15,20 @@
         "memory"
         "cpu"
         "temperature"
-        "network"
         "pulseaudio"
+        "network"
+        "custom/bluetooth"
         "clock"
         "tray"
       ];
 
-      "hyprland/workspaces" = {
-        format = "{icon}";
-        format-icons = ["1" "2" "3" "4" "5"];
-        persistent-workspaces = {
-          "*" = 5;
-        };
-      };
+      # "hyprland/workspaces" = {
+      #   format = "{icon}";
+      #   format-icons = ["1" "2" "3" "4" "5"];
+      #   persistent-workspaces = {
+      #     "*" = 5;
+      #   };
+      # };
 
       memory = {
         interval = 5;
@@ -54,6 +55,8 @@
         format-ethernet = " {ipaddr}";
         format-disconnected = "⚠ Disconnected";
         tooltip-format = "{ifname}: {ipaddr}";
+        on-click = "nm-connection-editor"; 
+        on-click-right = "nmtui"; 
       };
 
       pulseaudio = {
@@ -69,7 +72,18 @@
           default = ["" ""];
         };
         scroll-step = 1;
-        on-click = "pamixer -t";
+        on-click = "pamixer -t";  # Вкл/выкл звук
+        on-click-right = "pavucontrol";  # Открыть микшер
+      };
+
+      "custom/bluetooth" = {
+        format = "{}";
+        interval = 30;
+        exec = "echo ''";
+        exec-if = "which bluetoothctl";
+        return-type = "json";
+        on-click = "blueman-manager";
+        signal = 8;
       };
 
       clock = {

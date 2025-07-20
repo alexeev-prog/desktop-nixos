@@ -8,6 +8,7 @@
 		./hardware-configuration.nix
 		./packages.nix
 		./services.nix
+		./localization.nix
 		./bundle/bundle.nix
 	];
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];

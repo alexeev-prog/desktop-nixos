@@ -5,7 +5,7 @@
   programs.kitty = {
     enable = true;
     font.name = "JetBrains Mono Nerd Font";
-    font.size = 12;
+    font.size = 10;
     settings = {
       scrollback_lines = 10000;
       enable_audio_bell = false;

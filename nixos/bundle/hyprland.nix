@@ -10,6 +10,30 @@
     mako
     swaylock
     swayidle
+    
+    pyprland
+    hyprpicker
+    hyprcursor
+    hyprlock
+    hypridle
+    hyprpaper
+
+    starship
+    helix
+
+    qutebrowser
+    zathura
+    mpv
+    imv
+
+    dunst
+    rofi
+    rofi-wayland
+    rofimoji
+    waybar
+    wlogout
+    eww
+    swaynotificationcenter
   ];
 
   programs.hyprland = {
