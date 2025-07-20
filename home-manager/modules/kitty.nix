@@ -10,6 +10,7 @@
       scrollback_lines = 10000;
       enable_audio_bell = false;
       background = "#1a1a1a";
+      background_opacity = "0.75";
       foreground = "#abb2bf";
       cursor = "#61afef";
       selection_background = "#3e4451";

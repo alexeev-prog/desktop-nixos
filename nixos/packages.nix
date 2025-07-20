@@ -17,10 +17,10 @@
 
   environment.systemPackages = with pkgs; [
  	pinta
-  	krita
     firefox
     wofi
     home-manager
+    jq
     vim
     gtk-engine-murrine
     wget
@@ -210,7 +210,6 @@
     uv
     docker
     nitch
-    gnome-tweaks
     libgccjit
     vscodium
     libgcc

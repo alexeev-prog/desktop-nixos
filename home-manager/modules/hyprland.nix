@@ -10,7 +10,7 @@
 
     settings = {
       exec-once = [
-		  "swaybg -i ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png"
+		  "swaybg -i ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png -m fill"
 		  "waybar"
 		  "mako"
 		  "nm-applet"
@@ -47,6 +47,9 @@
           size = 5;
           passes = 3;
           new_optimizations = true;
+          # Add blur rules for Kitty
+          ignore_opacity = true;
+          special = true;
         };
         # drop_shadow = true;
         # shadow_range = 15;

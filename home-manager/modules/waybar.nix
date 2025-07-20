@@ -20,6 +20,8 @@
       
       modules-right = [
         "custom/keyboard"
+        "cpu"
+        "memory"
         "pulseaudio"
         "backlight"
         "network"
@@ -29,10 +31,16 @@
       ];
 
       "custom/keyboard" = {
-        exec = "hyprctl devices | grep -A 2 'keyboard' | grep 'active keymap' | awk '{print $3}' | head -n1";
+        exec = ''
+          hyprctl devices | grep -A 2 'keyboard' | grep 'active keymap' | awk '{print $3}' | head -n1
+        '';
         interval = 2;
         format = "⌨ {}";
-        on-click = "hyprctl switchxkblayout next";
+        on-click = ''
+          # Get first keyboard device ID
+          device=$(hyprctl devices -j | jq -r '.keyboards[0].name')
+          hyprctl switchxkblayout $device next
+        '';
         tooltip = false;
       };
 
@@ -53,6 +61,34 @@
       "hyprland/window" = {
         format = "{}";
         max-length = 50;
+      };
+
+      cpu = {
+        format = "  {usage}%";
+        interval = 1;
+        tooltip = false;
+      };
+
+      # Memory Widget
+      memory = {
+        format = "  {percentage}%";
+        interval = 2;
+        tooltip = false;
+      };
+
+      # Improved Battery Widget
+      battery = {
+        states = {
+          good = 90;
+          warning = 30;
+          critical = 15;
+        };
+        format = "{icon} {capacity}%";
+        format-charging = " {capacity}%";
+        format-plugged = " {capacity}%";
+        format-full = "  Full";
+        format-alt = "{time} {icon}";
+        format-icons = ["" "" "" "" ""];
       };
 
       backlight = {
@@ -91,9 +127,9 @@
       };
 
       network = {
-        format-wifi = " {essid}";
-        format-ethernet = " {ifname}";
-        format-linked = " {ifname} (No IP)";
+        format-wifi = "  {essid}";
+        format-ethernet = " { ifname}";
+        format-linked = "  {ifname} (No IP)";
         format-disconnected = "⚠ Disconnected";
         tooltip-format = "{ifname}: {ipaddr}/{cidr}";
         on-click = "nm-connection-editor";
@@ -101,7 +137,7 @@
 
       clock = {
         interval = 60;
-        format = " {:%Y-%m-%d %H:%M}";
+        format = "  {:%Y-%m-%d %H:%M}";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       };
 
@@ -132,7 +168,7 @@
       
       #workspaces button.active {
         color: #58a6ff;
-        background-color: rgba(33, 33, 33, 0.15);
+        background-color: rgba(22, 22, 22, 0.15);
         border-radius: 4px;
       }
       
@@ -141,40 +177,63 @@
         padding: 0 12px;
       }
       
-      #clock, #pulseaudio, #backlight, #network, #bluetooth, #battery, #tray, #custom-keyboard {
-        background-color: rgba(22, 22, 22, 0.8);
+      #clock, #pulseaudio, #backlight, #network, #bluetooth, #battery, #tray, #custom-keyboard, #cpu, #memory {
+        background-color: rgba(19, 19, 19, 0.8);
         padding: 0 12px;
         margin: 0 4px;
         border-radius: 6px;
       }
+
+      #battery.charging, #battery.plugged {
+        color: #98c379;
+      }
+      
+      #battery.warning:not(.charging) {
+        color: #d19a66;
+      }
+      
+      #battery.critical:not(.charging) {
+        color: #e06c75;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+      
+      @keyframes blink {
+        to {
+          background-color: rgba(224, 108, 117, 0.2);
+        }
+      }
       
       #clock {
-        color: #f0883e;
+        color: #efefef;
         font-weight: bold;
       }
       
       #pulseaudio {
-        color: #3fb950;
+        color: #c9d1d9;
       }
       
       #backlight {
-        color: #d29922; 
+        color: #c9d1d9; 
       }
       
       #network {
-        color: #58a6ff; 
+        color: #c9d1d9; 
       }
       
       #bluetooth {
-        color: #bc8cff;  
+        color: #c9d1d9;  
       }
       
       #battery {
-        color: #ff7b72;  
+        color: #c9d1d9;  
       }
       
       #custom-keyboard {
-        color: #8b949e; 
+        color: #c9d1d9; 
       }
     '';
   };
