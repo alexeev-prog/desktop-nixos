@@ -36,6 +36,7 @@
     brightnessctl
     pamixer
     appimage-run
+    gtk3
     xfce.thunar
     zlib
     blueman

@@ -10,7 +10,7 @@
 # }
 
 # nixos/bundle/env.nix
-{
+{ config, pkgs, ... }: {
 
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
@@ -26,11 +26,17 @@
     CLUTTER_BACKEND = "wayland";
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
     GDK_BACKEND = "wayland";
-    QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
+    GTK_USE_PORTAL = "1";     # Форсирует использование порталов
+    QT_QPA_PLATFORM = "gtk3"; # Qt-приложения используют GTK
   };
 }
