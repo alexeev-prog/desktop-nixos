@@ -5,8 +5,8 @@
   imports = [ ./waybar.nix ];
 
   home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = ~/Pictures/images/better.jpg
-    wallpaper = ~/Pictures/images/better.jpg
+    preload = ~/Downloads/images/milad.jpg
+    wallpaper = ,~/Downloads/images/milad.jpg
   '';
 
   wayland.windowManager.hyprland = {
@@ -15,7 +15,7 @@
 
     settings = {
       exec-once = [
-		  # "swaybg -i ~/Downloads/images/nix-wallpaper-nineish-dark-gray.png -m fill"
+		  # "swaybg -i ~/Downloads/images/milad.jpg -m fill"
 		  "swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'"
 		  "wl-paste --watch cliphist store"
 		  "hyprpaper"

@@ -28,6 +28,8 @@
     jack.enable = true;
   };
 
+  services.gnome.tracker-miners.enable = true;
+
   security.rtkit.enable = true;
 
   # Включает поддержку тачпада (включен по умолчанию в многих desktopManager).
@@ -74,15 +76,8 @@
     setSocketVariable = true;
   };
 
-  services.tumbler.enable = true; # сервис миниатюр
     environment.systemPackages = with pkgs; [
-      tumbler # для миниатюр изображений
       poppler_utils # миниатюры PDF
     ];
   
-    # Поддержка форматов
-    services.tumbler.extraPlugins = with pkgs; [
-      tumbler # основной плагин
-      ffmpegthumbnailer
-    ];
 }

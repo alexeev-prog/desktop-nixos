@@ -30,6 +30,9 @@
     playerctl
     fastfetch
     xdg-utils
+    tracker # Основной пакет
+    tracker-miners # Индексаторы
+    dconf # Для настроек
     brightnessctl
     pamixer
     appimage-run
@@ -43,6 +46,7 @@
     nemo
     ffmpegthumbnailer
     gnome-music
+    eog
     gnome-photos
     vlc
     totem # video player
@@ -226,7 +230,6 @@
     zram-generator
     rustfmt
     direnv
-    neotop
     chromium
     blueman
     libgcc
@@ -289,6 +292,13 @@
     iosevka
     nerd-fonts.iosevka
   ];
+
+  # environment.extraSetup = ''
+  #   export XDG_CONFIG_HOME=/etc/dummy-conf
+  #   ${pkgs.glib}/bin/gsettings set org.freedesktop.Tracker3.Miner.Files index-single-directories "['&DESKTOP', '&DOCUMENTS']"
+  #   ${pkgs.glib}/bin/gsettings set org.freedesktop.Tracker3.Miner.Files index-recursive-directories "['&DOWNLOAD', '&MUSIC', '&PICTURES', '&VIDEOS']"
+  #   unset XDG_CONFIG_HOME
+  # '';
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

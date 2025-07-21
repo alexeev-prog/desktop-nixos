@@ -58,8 +58,8 @@
           "3" = "三";
           "4" = "四";
           "5" = "五";
-          "active" = "";
-          "default" = "";
+          "active" = " ";
+          "default" = " ";
         };
         on-click = "activate";
       };
@@ -127,7 +127,7 @@
           car = " ";
           default = [" " " "];
         };
-        scroll-step = 1;
+        scroll-step = 5;
         on-click = "pamixer -t";
         on-click-right = "pavucontrol";
       };
@@ -185,7 +185,7 @@
       
       #clock, #workspaces, #pulseaudio, #notification, #backlight, #network, #bluetooth, 
       #battery, #tray, #custom-keyboard, #cpu, #memory {
-        background-color: #2f2f2f;
+        background-color: #2a2a2a;
         border: 1px solid #1a1a1a;
         padding: 0 8px;
         margin: 0 4px;
@@ -214,9 +214,13 @@
           background-color: rgba(224, 108, 117, 0.2);
         }
       }
+
+      #notifications {
+      	color: #efefef;
+      }
       
       #clock {
-        color: #efefef;
+        color: #ffffff;
         font-weight: bold;
       }
       
