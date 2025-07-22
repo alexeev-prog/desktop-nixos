@@ -2,10 +2,6 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.permittedInsecurePackages = [
-      "python-2.7.18.8"
-    ];
   
   nixpkgs.overlays = [
     (self: super: {
@@ -24,10 +20,11 @@
     home-manager
     jq
     vim
-    qemu_full
+    # qemu_full
     gtk-engine-murrine
     wget
     playerctl
+    gnome-text-editor
     fastfetch
     xdg-utils
     tracker # Основной пакет
@@ -89,8 +86,6 @@
     swayidle
     curl
     # jetbrains.rust-rover
-    libGL
-    glfw
     protonplus
     proton-caller
     wine
@@ -112,7 +107,6 @@
     valgrind
     jdk17
     jre17_minimal
-    libxml2
     micro
     busybox
     nodejs
@@ -202,7 +196,6 @@
     fish
     eza
     onefetch
-    libgccjit
     compose2nix
     pipx
     flatpak
@@ -216,9 +209,6 @@
     uv
     docker
     nitch
-    libgccjit
-    libgcc
-    sassc
     # jetbrains.pycharm-community-bin
     cargo
     rustc
@@ -233,7 +223,6 @@
     direnv
     chromium
     blueman
-    libgcc
     btop
     adwaita-qt
     adwaita-qt6

@@ -27,8 +27,14 @@
       ];
 
       windowrulev2 = [
-            "noborder, onworkspace:w[t1]"
-          ];
+      	"noborder, onworkspace:w[t1]"
+        "float, class:(amberol)"
+        "float, class:(steam)"
+        "float, class:(TelegramDesktop)"
+        "float, title:(Friends List)"
+        "size 1000 600, class:(steam)"
+        "move center, class:(steam)"
+      ];
 
       env = [
         "XCURSOR_SIZE,24"
@@ -55,35 +61,48 @@
       };
 
       decoration = {
-        rounding = 6;
+      	rounding = 6;
         blur = {
           enabled = true;
-          size = 4;
-          passes = 2;
+          size = 8;
+          passes = 3;
           new_optimizations = true;
-          ignore_opacity = true;
-          special = true;
+          noise = 0.01;
+          contrast = 0.9;
+          brightness = 0.8;
         };
-        # drop_shadow = true;
-        # shadow_range = 15;
-        # shadow_render_power = 3;
-        # shadow_ignore_window = true;
-        # "col.shadow" = "rgba(00000099)";
       };
     
+      # animations = {
+      #   enabled = true;
+      #   bezier = [
+      #     "linear, 0, 0, 1, 1"
+      #     "md3_decel, 0.05, 0.7, 0.1, 1"
+      #     "overshot, 0.05, 0.9, 0.1, 1.05"
+      #   ];
+      #   animation = [
+      #     "windows, 1, 3, md3_decel, popin"
+      #     "windowsOut, 1, 3, md3_decel, popin"
+      #     "border, 1, 10, default"
+      #     "fade, 1, 3, default"
+      #     "workspaces, 1, 3, overshot, slide"
+      #   ];
+      # };
+
       animations = {
         enabled = true;
         bezier = [
-          "linear, 0, 0, 1, 1"
-          "md3_decel, 0.05, 0.7, 0.1, 1"
-          "overshot, 0.05, 0.9, 0.1, 1.05"
+          "smooth, 0.4, 0, 0.2, 1"
+          "overshot, 0.05, 0.9, 0.1, 1.1"
+          "bounce, 0.5, 1, 0.89, 1"
         ];
         animation = [
-          "windows, 1, 3, md3_decel, popin"
-          "windowsOut, 1, 3, md3_decel, popin"
-          "border, 1, 10, default"
-          "fade, 1, 3, default"
-          "workspaces, 1, 3, overshot, slide"
+          "windows, 1, 3, smooth, popin"
+          "windowsOut, 1, 3, smooth, popin"
+          "border, 1, 5, smooth"
+          "fade, 1, 3, smooth"
+          "workspaces, 1, 4, overshot, slidevert"
+          "specialWorkspace, 1, 3, bounce, slidevert"
         ];
       };
     
@@ -107,6 +126,8 @@
         "$mod, D, exec, wofi -I -m -M=fuzzy --style ~/nixos/home-manager/modules/wofi.css --show drun -p \" Search\""
         "$mod, P, pseudo"
         "$mod, S, togglesplit"
+        "$mod, T, togglefloating"
+        "$mod SHIFT, T, togglegroup"
         
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
@@ -128,6 +149,16 @@
         "$mod SHIFT, 3, movetoworkspace, 3"
         "$mod SHIFT, 4, movetoworkspace, 4"
         "$mod SHIFT, 5, movetoworkspace, 5"
+
+        "$mod, 6, workspace, 6"
+        "$mod, 7, workspace, 7"
+        "$mod, 8, workspace, 8"
+        "$mod, 9, workspace, 9"
+        "$mod SHIFT, 6, movetoworkspace, 6"
+        "$mod SHIFT, 7, movetoworkspace, 7"
+        "$mod SHIFT, 8, movetoworkspace, 8"
+        "$mod SHIFT, 9, movetoworkspace, 9"
+        
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
         "$mod SHIFT, L, exec, swaylock -c 000000"
@@ -148,11 +179,16 @@
   };
 
   services.mako = {
-    enable = true;
-    backgroundColor = "#1a1a1a";
-    textColor = "#abb2bf";
-    borderColor = "#61afef";
-  };
+     backgroundColor = "#1e1e2e";
+     textColor = "#cdd6f4";
+     borderColor = "#cba6f7";
+     borderRadius = 12;
+     padding = "15,20";
+     margin = "20,20";
+     width = 350;
+     height = 150;
+     font = "JetBrains Mono 10";
+   };
 
   home.file.".config/rofi/config.rasi".text = ''
     configuration {
