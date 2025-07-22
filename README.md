@@ -1,6 +1,8 @@
 # desktop-nixos
 My main desktop nixos configuration / Моя главная конфигурация NixOS с переводом на русский.
 
+Hyprland, waybar, kitty, wofi. Dark minimalistic theme.
+
 ![alt text](image.png)
 
 ## Installing
