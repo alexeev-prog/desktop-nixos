@@ -24,7 +24,7 @@
     home-manager
     jq
     vim
-    # qemu_full
+    qemu_full
     gtk-engine-murrine
     wget
     playerctl

@@ -37,6 +37,6 @@
     GDK_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";
     GTK_USE_PORTAL = "1";     # Форсирует использование порталов
-    QT_QPA_PLATFORM = "gtk3"; # Qt-приложения используют GTK
+    QT_QPA_PLATFORM = "wayland"; # Qt-приложения используют GTK
   };
 }
