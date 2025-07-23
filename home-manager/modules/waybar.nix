@@ -166,7 +166,7 @@
 	  }
 	  
 	  window#waybar {
-	    background-color: rgba(25, 25, 25, 0.95);
+	    background-color: transparent;
 	    color: #e0e0e0;
 	    border: none;
 	    border-radius: 0;
