@@ -27,6 +27,7 @@
  	pinta
     firefox
     nwg-look
+    marble-shell-theme
     wofi
     xkblayout-state
     gnomeExtensions.appindicator
