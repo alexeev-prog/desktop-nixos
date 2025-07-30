@@ -29,20 +29,19 @@
     xdg-utils
     tracker # Основной пакет
     tracker-miners # Индексаторы
+    gnome-tweaks
     dconf # Для настроек
     brightnessctl
     pamixer
     openmw
     appimage-run
     gtk3
-    xfce.thunar
     zlib
     blueman
     brightnessctl
     bluez
     bluez-tools
     bluez-alsa
-    nemo
     ffmpegthumbnailer
     gnome-music
     eog
