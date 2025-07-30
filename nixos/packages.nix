@@ -32,6 +32,7 @@
     dconf # Для настроек
     brightnessctl
     pamixer
+    openmw
     appimage-run
     gtk3
     xfce.thunar
