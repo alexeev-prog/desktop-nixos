@@ -1,3 +1,15 @@
+commit a49951267814cc45f8db0b953f30e24727c0a25e
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Wed Jul 30 13:56:11 2025 +0700
+
+    remove hyprland
+
+commit 55b8bcfb8ab389a1d933c681840b724a2f5ae7c2
+Author: Alexeev Bronislav <alexeev.dev@mail.ru>
+Date:   Wed Jul 30 13:52:33 2025 +0700
+
+    add gnome
+
 commit 253af2277e85c3d7c412b41634ad068861eae10d
 Author: Alexeev Bronislav <alexeev.dev@mail.ru>
 Date:   Wed Jul 30 13:39:51 2025 +0700

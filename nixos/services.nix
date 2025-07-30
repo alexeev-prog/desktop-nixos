@@ -11,12 +11,7 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
 
-
-  # Конфигурация клавиатуры в X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-  # Включает CUPS для печати документов
+  services.udev.packages = with pkgs; [ pkgs.gnome-settings-daemon ];
   # services.printing.enable = true;
 
   # Включает звук

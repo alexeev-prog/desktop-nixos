@@ -11,12 +11,25 @@
     })
   ];
 
+  environment.gnome.excludePackages = (with pkgs; [
+    atomix # puzzle game
+    cheese # webcam tool
+    epiphany # web browser
+    evince # document viewer
+    geary # email reader
+    gnome-tour
+    hitori # sudoku game
+    iagno # go game
+    tali # poker game
+  ]);
+
   environment.systemPackages = with pkgs; [
  	pinta
     firefox
     nwg-look
     wofi
     xkblayout-state
+    gnomeExtensions.appindicator
     home-manager
     jq
     vim
