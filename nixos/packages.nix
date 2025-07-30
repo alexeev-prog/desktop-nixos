@@ -87,16 +87,10 @@
     qgnomeplatform
     adwaita-qt
     cpufetch
-    hyprland
-    kitty
-    swaybg
-    mako
-    swaylock
     grim
     slurp
     wl-clipboard
     playerctl
-    swayidle
     curl
     # jetbrains.rust-rover
     protonplus
