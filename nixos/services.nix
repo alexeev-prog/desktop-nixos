@@ -5,6 +5,7 @@
     enable = true;
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = true;
+    desktopManager.gnome.enable = true;
   };
 
   services.gnome.gnome-keyring.enable = true;
@@ -44,18 +45,18 @@
       # "--dpi-desync=fake,disorder2"
       # "--dpi-desync-ttl=8"
       # "--dpi-desync-autottl=2"
-          
+
       # "--dpi-desync=split2,disorder2"
       # "--dpi-desync-ttl=1"
       # "--dpi-desync-autottl=2"
-      
+
       # "--dpi-desync=fake"
       # "--dpi-desync-fooling=md5sig"
       # "--dpi-desync-ttl=8"
-          
+
       "-dpi-desync=syndata,multidisorder"
       "--dpi-desync-split-pos=1,midsld"
-          
+
       # "--dpi-desync=fake"
       # "--dpi-desync-ttl=8"
       # "--dpi-desync-autottl=4"
@@ -79,5 +80,5 @@
     environment.systemPackages = with pkgs; [
       poppler_utils # миниатюры PDF
     ];
-  
+
 }
