@@ -30,8 +30,10 @@
     marble-shell-theme
     wofi
     xkblayout-state
+    papirus-icon-theme
     gnomeExtensions.appindicator
     home-manager
+    flat-remix-icon-theme
     jq
     vim
     # qemu_full
@@ -51,7 +53,6 @@
     appimage-run
     gtk3
     zlib
-    blueman
     brightnessctl
     bluez
     bluez-tools
