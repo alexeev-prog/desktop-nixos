@@ -56,8 +56,6 @@
       # "--dpi-desync-ttl=8"
       # "--dpi-desync-autottl=4"
     ];
-  # Blueman
-  services.blueman.enable = true;
   hardware.bluetooth.enable = true;
 
   # Enable GVfs
