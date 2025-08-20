@@ -6,6 +6,7 @@
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = true;
     desktopManager.gnome.enable = true;
+    # desktopManager.xfce.enable = true;
   };
 
   services.gnome.gnome-keyring.enable = true;
